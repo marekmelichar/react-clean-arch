@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { withTranslation, useTranslation } from 'react-i18next';
 import NotesList from './containers/NotesList/NotesList';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        Notes:
-        <NotesList />
-      </div>
-    )
-  }
+function App({ t } : { t:any }) {
+
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  return (
+    <Suspense fallback="loading">
+      <p>{t('notes')}: </p>
+      <NotesList />
+      <button onClick={() => changeLanguage("cs")}>cs</button>
+      <button onClick={() => changeLanguage("en")}>en</button>
+    </Suspense>
+  )
 }
 
-export default App;
+export default withTranslation()(App);
