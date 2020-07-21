@@ -1,7 +1,7 @@
 // import { Dispatch } from "redux";
 // import { INote } from '../../../core/domain/entity/note'
-// import { NoteServiceImplementation } from '../../../core/application/useCase/notes/notes'
-// import { NoteRepositoryImplementation } from '../../../core/repository/NoteRepositoryImplementation'
+import { GetNotes } from '../../../core/application/useCase/notes/notes'
+import { NotesGateway } from '../../../core/infrastructure/api/notes'
 
 import {
   NOTES_LOAD_REQUEST,
@@ -15,10 +15,10 @@ export const getNotes = () => {
     dispatch({ type: NOTES_LOAD_REQUEST })
 
     try {
-      // const noteRepository = new NoteRepositoryImplementation()
-      // const noteService = new NoteServiceImplementation(noteRepository)
-      // const notes = await noteService.GetNotes()
-      dispatch({ type: NOTES_LOAD_SUCCESS, payload: "notes" })
+      const notesGateway = new NotesGateway()
+      const noteService = new GetNotes(notesGateway)
+      const notes = await noteService.execute()
+      dispatch({ type: NOTES_LOAD_SUCCESS, payload: notes })
     } catch (error) {
       dispatch({ type: NOTES_LOAD_FAILURE, error })
     }

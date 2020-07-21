@@ -1,6 +1,6 @@
 import { INote } from '../../../domain/entity/note'
 import { IGetNotes } from '../../boundary/notes'
-import { INotesStorageGateway } from '../../repository'
+import { INotesStorageGateway } from '../../repository/notes'
 
 export class GetNotes implements IGetNotes {
   notesGateway: INotesStorageGateway

@@ -1,6 +1,6 @@
 import { INote } from '../../domain/entity/note'
 // import { IGetNotes } from '../../application/boundary'
-import { INotesStorageGateway } from '../../application'
+import { INotesStorageGateway } from '../../application/repository/notes'
 
 declare global {
   // tslint:disable-next-line

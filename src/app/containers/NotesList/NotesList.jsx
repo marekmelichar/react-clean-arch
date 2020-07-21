@@ -15,12 +15,21 @@ class NotesList extends Component {
   componentDidMount = () => {
     this.props.getNotes()
   }
+
+  componentDidUpdate = (prevProps) => {
+    console.log('prevProps', prevProps);
+    console.log('this.props', this.props);
+    if (prevProps.get_notes.payload !== this.props.get_notes.payload) {
+      console.log('get_notes', this.props.get_notes);
+      this.setState({ notes: this.props.get_notes.payload })
+    }
+  }
   
   render() {
+    console.log('render');
     return (
       <ul>
-        {/* {this.state.notes.map((note: Note) => <li key={note.id}>{note.title}</li>)} */}
-        123456
+        {this.state.notes.map(note => <li key={note.id}>{note.title}</li>)}
       </ul>
     )
   }
