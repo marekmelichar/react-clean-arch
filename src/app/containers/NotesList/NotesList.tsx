@@ -1,37 +1,61 @@
-import React from 'react';
-import { Note } from '../../../domain/entity/Note'
-import { NoteServiceImplementation } from '../../../domain/useCase/NoteService'
-import { NoteRepositoryImplementation } from '../../../repository/NoteRepositoryImplementation'
+// import React, { Component } from 'react';
+// import { connect } from "react-redux";
+// import { StoreState } from "../../reducers";
+// import { INote } from '../../../core/domain/entity/note'
 
-class NotesList extends React.Component {
+// // import {
+// //   getNotes,
+// //   IgetNotesAction
+// // } from "../../actions";
 
-  state = {
-    notes: []
-  }
+// // interface INotesListProps {
+// //   getNotes: IgetNotesAction
+// // }
 
-  componentDidMount = () => {
-    this.getNotes()
-  }
+// interface INotesListState {
+//   notes: INote[]
+// }
+
+// class _NotesList extends Component<INotesListProps, INotesListState> {
+
+//   constructor(props: INotesListProps) {
+//     super(props);
+
+//     this.state = {
+//       notes: []
+//     };
+//   }
+
+//   componentDidMount = () => {
+//     this.props.getNotes()
+//   }
   
-  getNotes = async () => {
-    const noteRepository = new NoteRepositoryImplementation()
-    const noteService = new NoteServiceImplementation(noteRepository)
-    const notes = await noteService.GetNotes()
+//   render() {
+//     return (
+//       <ul>
+//         {/* {this.state.notes.map((note: Note) => <li key={note.id}>{note.title}</li>)} */}
+//         123456
+//       </ul>
+//     )
+//   }
+// }
 
-    console.log('notes', notes);
+// // export default NotesList;
 
-    return this.setState({
-      notes
-    })
-  }
 
-  render() {
-    return (
-      <ul>
-        {this.state.notes.map((note: Note) => <li key={note.id}>{note.title}</li>)}
-      </ul>
-    )
-  }
-}
 
-export default NotesList;
+
+
+// const mapStateToProps = ({
+//   get_notes
+// }: StoreState): {
+//   get_notes: IgetNotesAction
+// } => {
+//   return {
+//     get_notes
+//   };
+// };
+
+// export const NotesList = connect(mapStateToProps, {
+//   getNotes
+// })(_NotesList);

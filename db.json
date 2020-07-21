@@ -2,9 +2,34 @@
   "notes": [
     {
       "id": 0,
-      "title": "first note",
+      "title": "1st note",
       "content": "lorem ipsum content",
-      "tags": ["tag1", "tag2"],
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "createdAt": 1595242039,
+      "ownerId": "l1k2j31l2kj312lk3j12lk3j"
+    },
+    {
+      "id": 1,
+      "title": "2nd note 123",
+      "content": "lorem ipsum content",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "createdAt": 1595242039,
+      "ownerId": "l1k2j31l2kj312lk3j12lk3j"
+    },
+    {
+      "id": 2,
+      "title": "3rd note",
+      "content": "lorem ipsum content",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
       "createdAt": 1595242039,
       "ownerId": "l1k2j31l2kj312lk3j12lk3j"
     }

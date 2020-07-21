@@ -1,0 +1,5 @@
+export enum ActionTypes {
+  NOTES_LOAD_REQUEST,
+  NOTES_LOAD_SUCCESS,
+  NOTES_LOAD_FAILURE
+}
