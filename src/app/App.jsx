@@ -2,11 +2,11 @@ import React from 'react';
 import { withTranslation, useTranslation } from 'react-i18next';
 import NotesList from './containers/NotesList/NotesList';
 
-function App({ t } : { t:any }) {
+function App({ t }) {
 
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 

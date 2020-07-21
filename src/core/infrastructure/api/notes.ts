@@ -1,5 +1,6 @@
-import { INote } from '../domain/entity/note'
-import { IGetNotes } from '../application/boundary'
+import { INote } from '../../domain/entity/note'
+// import { IGetNotes } from '../../application/boundary'
+import { INotesStorageGateway } from '../../application'
 
 declare global {
   // tslint:disable-next-line
@@ -8,15 +9,11 @@ declare global {
   }
 }
 
-export class GetNotes implements IGetNotes {
+export class NotesGateway implements INotesStorageGateway {
   
   url:any = window.API_URL
 
-  public execute = async () => {
-
-  }
-  
-  async GetNotes(): Promise<INote[]> {
+  async getAll(): Promise<INote[]> {
     const res = await fetch(this.url)
     const json = await res.json()
     return json.map((note: INote) => {

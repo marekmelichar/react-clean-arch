@@ -1,6 +1,8 @@
+// @ts-ignore 
+
 import {
   IGetNotes
-} from './boundary'
+} from './boundary/index'
 
 import {
   INotesStorageGateway
