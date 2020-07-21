@@ -1,7 +1,5 @@
-// import { Dispatch } from "redux";
-// import { INote } from '../../../core/domain/entity/note'
-import { GetNotes } from '../../../core/application/useCase/notes/notes'
 import { NotesGateway } from '../../../core/infrastructure/api/notes'
+import { GetNotes } from '../../../core/application/useCase/notes/notes'
 
 import {
   NOTES_LOAD_REQUEST,

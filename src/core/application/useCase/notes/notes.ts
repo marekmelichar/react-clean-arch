@@ -12,7 +12,7 @@ export class GetNotes implements IGetNotes {
   }
 
   public execute = async (): Promise<INote[]> => {
-    const result = this.notesGateway.getAll()
+    const result = await this.notesGateway.getAll()
     return result;
   }
 }
