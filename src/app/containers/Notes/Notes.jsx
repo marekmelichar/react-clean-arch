@@ -9,7 +9,7 @@ class Notes extends Component {
     super(props);
 
     this.state = {
-      notes: []
+      value: ''
     };
   }
 
@@ -17,19 +17,40 @@ class Notes extends Component {
     this.props.getNotes()
   }
 
-  shouldComponentUpdate = (nextProps) => {
-    if(nextProps.get_notes.payload === this.props.get_notes.payload) {
-      return false;
-    }
+  shouldComponentUpdate = (nextProps, nextState) => {
+    console.log('nextProps, nextState', nextProps, nextState);
+    // if(nextProps.get_notes.payload === this.props.get_notes.payload) {
+    //   return false;
+    // } else {
+      return true;
+    // }
 
-    return true;
+    // if(nextState.value !== this.state.value) {
+    //   return true;
+    // }
+
+    
+  }
+
+  handleChange = event => {
+    console.log('event.target.value', event.target.value);
+    this.setState({ value: event.target.value });
   }
   
   render() {
+    console.log('AAA', this.state.value);
+
     const { t, get_notes } = this.props
 
     return (
       <div>
+        <input
+          type="text"
+          // value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <p>{this.state.value}</p>
+
         <p>{t('notes')}: </p>
         <ul>
           {get_notes.payload &&
