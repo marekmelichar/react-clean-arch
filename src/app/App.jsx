@@ -1,6 +1,8 @@
 import React from 'react';
 import { withTranslation, useTranslation } from 'react-i18next';
-import NotesList from './containers/NotesList/NotesList';
+import { Switch, Route, NavLink } from 'react-router-dom'
+import Home from './components/Home/Home'
+import Notes from './containers/Notes/Notes'
 
 function App({ t }) {
 
@@ -12,10 +14,23 @@ function App({ t }) {
 
   return (
     <>
-      <p>{t('notes')}: </p>
-      <NotesList />
-      <button onClick={() => changeLanguage("cs")}>cs</button>
-      <button onClick={() => changeLanguage("en")}>en</button>
+      <header>
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/notes">Notes</NavLink>
+        </nav>
+        <div className="lang-switch">
+          <button onClick={() => changeLanguage("cs")}>cs</button>
+          <button onClick={() => changeLanguage("en")}>en</button>
+        </div>
+      </header>
+
+      <main>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/notes" component={Notes} />
+        </Switch>
+      </main>
     </>
   )
 }
