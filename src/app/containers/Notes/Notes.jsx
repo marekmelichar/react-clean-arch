@@ -20,29 +20,21 @@ class Notes extends Component {
     this.props.getNotes()
   }
 
-  // componentDidUpdate = (prevProps) => {
-  //   // console.log('prevProps.get_notes.payload', prevProps.get_notes.payload);
-  //   // console.log('this.props.get_notes.payload', this.props.get_notes.payload);
-  //   // if(prevProps.get_notes.payload !== this.props.get_notes.payload) {
-  //   //   this.props.getNotes()
-  //   // }
-  // }
-
-  // TODO: optimization od Notes rendering
-  // shouldComponentUpdate = (nextProps, nextState) => {
-  //   console.log('nextProps, nextState', nextProps, nextState);
-  //   // if(nextProps.get_notes.payload === this.props.get_notes.payload) {
-  //   //   return false;
-  //   // } else {
-  //     return true;
-  //   // }
-
-  //   // if(nextState.value !== this.state.value) {
-  //   //   return true;
-  //   // }
-
+  shouldComponentUpdate = (nextProps, nextState) => {
     
-  // }
+    if(nextProps.get_notes.payload !== this.props.get_notes.payload) {
+      return true;
+    }
+
+    if(nextState.value !== this.state.value ||
+      nextState.enableEditId !== this.state.enableEditId ||
+      nextState.valueEdit !== this.state.valueEdit
+    ) {
+      return true;
+    }
+
+    return false;
+  }
 
   handleChange = event => {
     this.setState({ value: event.target.value })
