@@ -1,43 +1,30 @@
 {
   "notes": [
     {
-      "id": 0,
-      "title": "1st note",
-      "content": "lorem ipsum content",
-      "tags": [
-        "tag1",
-        "tag2"
-      ],
-      "createdAt": 1595242039,
-      "ownerId": "l1k2j31l2kj312lk3j12lk3j"
+      "id": "3e07edd2-89e6-4fb7-818f-4c046fba5899",
+      "title": "1"
     },
     {
-      "id": 1,
-      "title": "2nd note 123",
-      "content": "lorem ipsum content",
-      "tags": [
-        "tag1",
-        "tag2"
-      ],
-      "createdAt": 1595242039,
-      "ownerId": "l1k2j31l2kj312lk3j12lk3j"
+      "id": "1934a449-1cbd-4e11-850b-39199923a742",
+      "title": "2"
     },
     {
-      "id": 2,
-      "title": "3rd note",
-      "content": "lorem ipsum content",
-      "tags": [
-        "tag1",
-        "tag2"
-      ],
-      "createdAt": 1595242039,
-      "ownerId": "l1k2j31l2kj312lk3j12lk3j"
-    }
-  ],
-  "users": [
+      "note": "",
+      "id": "p53Cfc6"
+    },
     {
-      "id": "l1k2j31l2kj312lk3j12lk3j",
-      "email": "marek.melichar@icloud.com"
+      "id": "kKjVsH-"
+    },
+    {
+      "id": "FElU3gn"
+    },
+    {
+      "id": "adae9e2e-7c41-490b-b360-ad17ab2e6c74",
+      "title": "7"
+    },
+    {
+      "id": "47f8cb25-ef54-4aa6-baaf-47965d3c39c2",
+      "title": "8"
     }
   ]
 }

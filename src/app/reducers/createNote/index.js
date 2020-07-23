@@ -1,7 +1,7 @@
 import {
-	NOTES_LOAD_REQUEST,
-	NOTES_LOAD_SUCCESS,
-	NOTES_LOAD_FAILURE,
+	CREATE_NOTE_REQUEST,
+  CREATE_NOTE_SUCCESS,
+  CREATE_NOTE_FAILURE
 } from "../../actions";
 
 const initialState = {
@@ -9,22 +9,22 @@ const initialState = {
 	payload: [],
 }
 
-export const getNotesReducer = (state = initialState, action) => {
+export const createNoteReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case NOTES_LOAD_REQUEST:
+		case CREATE_NOTE_REQUEST:
 			return {
 				...state,
 				loading: true,
-      }
-      
-    case NOTES_LOAD_SUCCESS:
+			}
+
+    case CREATE_NOTE_SUCCESS:
       return {
         ...state,
         payload: action.payload,
         loading: false,
       }
 
-    case NOTES_LOAD_FAILURE:
+    case CREATE_NOTE_FAILURE:
       return {
         ...state,
         loading: false,

@@ -1,5 +1,5 @@
 import { NotesGateway } from '../../../core/infrastructure/api/notes'
-import { GetNotes } from '../../../core/application/useCase/notes/notes'
+import { GetNotes } from '../../../core/application/useCase/notes/getNotes'
 
 import {
   NOTES_LOAD_REQUEST,

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getNotes } from '../../actions'
+import { getNotes, createNote } from '../../actions'
 import { withTranslation } from 'react-i18next';
+import { v4 } from 'uuid'
 
 class Notes extends Component {
 
@@ -17,55 +18,83 @@ class Notes extends Component {
     this.props.getNotes()
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    console.log('nextProps, nextState', nextProps, nextState);
-    // if(nextProps.get_notes.payload === this.props.get_notes.payload) {
-    //   return false;
-    // } else {
-      return true;
+  componentDidUpdate = (prevProps) => {
+    // console.log('prevProps.get_notes.payload', prevProps.get_notes.payload);
+    // console.log('this.props.get_notes.payload', this.props.get_notes.payload);
+    // if(prevProps.get_notes.payload !== this.props.get_notes.payload) {
+    //   this.props.getNotes()
     // }
-
-    // if(nextState.value !== this.state.value) {
-    //   return true;
-    // }
-
-    
   }
 
+  // TODO: optimization od Notes rendering
+  // shouldComponentUpdate = (nextProps, nextState) => {
+  //   console.log('nextProps, nextState', nextProps, nextState);
+  //   // if(nextProps.get_notes.payload === this.props.get_notes.payload) {
+  //   //   return false;
+  //   // } else {
+  //     return true;
+  //   // }
+
+  //   // if(nextState.value !== this.state.value) {
+  //   //   return true;
+  //   // }
+
+    
+  // }
+
   handleChange = event => {
-    console.log('event.target.value', event.target.value);
     this.setState({ value: event.target.value });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+
+    if(this.state.value) {
+      const newNote = {
+        id: v4(),
+        title: this.state.value,
+      }
+
+      this.props.createNote(newNote)
+  
+      this.setState(state => ({
+        ...state,
+        value: ''
+      }))
+    }
   }
   
   render() {
-    console.log('AAA', this.state.value);
-
-    const { t, get_notes } = this.props
+    
+    const { t, get_notes, create_note } = this.props
 
     return (
       <div>
-        <input
-          type="text"
-          // value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <p>{this.state.value}</p>
-
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </form>
         <p>{t('notes')}: </p>
         <ul>
           {get_notes.payload &&
             get_notes.payload.map(note => <li key={note.id}>{note.title}</li>)}
         </ul>
+        <div>{create_note.error &&
+          <p>{create_note.error.message}</p>}</div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ get_notes }) => ({
-  get_notes
+const mapStateToProps = ({ get_notes, create_note }) => ({
+  get_notes,
+  create_note
 })
 
-export default withTranslation()(connect(mapStateToProps, { getNotes } )(Notes))
+export default withTranslation()(connect(mapStateToProps, { getNotes, createNote } )(Notes))
 
 
 

@@ -1,5 +1,6 @@
 import { INote } from '../../domain/entity/note'
 import { INotesStorageGateway } from '../../application/repository/notes'
+import axios, { AxiosResponse } from 'axios'
 
 declare global {
   // tslint:disable-next-line
@@ -12,16 +13,16 @@ export class NotesGateway implements INotesStorageGateway {
   
   url:any = window.API_URL
 
-  async getAll(): Promise<INote[]> {
-    const res = await fetch(`${this.url}/notes`)
-    const json = await res.json()
-    return json.map((note: INote) => ({
+  getAll = async (): Promise<INote[]> => {
+    const response = await axios.get(`${this.url}/notes`)
+    return response.data.map((note: INote) => ({
       id: note.id,
       title: note.title,
-      content: note.content,
-      tags: note.tags,
-      createdAt: note.createdAt,
-      ownerId: note.ownerId
     }))
+  }
+
+  create = async (newNote: INote): Promise<AxiosResponse<any>> => {
+    const response = await axios.post(`${this.url}/notes`, newNote)
+    return response
   }
 }
