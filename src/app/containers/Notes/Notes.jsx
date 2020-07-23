@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getNotes, createNote, editNote } from '../../actions'
+import { getNotes, createNote, editNote, deleteNote } from '../../actions'
 import { withTranslation } from 'react-i18next';
 import { v4 } from 'uuid'
 
@@ -77,8 +77,6 @@ class Notes extends Component {
   handleEditSubmit = (event, id, title) => {
     event.preventDefault()
 
-    console.log('EDIT', id, title);
-
     const editedNote = {
       id,
       title,
@@ -95,6 +93,18 @@ class Notes extends Component {
 
   handleEditChange = event => {
     this.setState({ valueEdit: event.target.value })
+  }
+
+  handleDelete = note => {
+    const { t } = this.props
+
+    const confirmText = t('confirm_delete') + ` ${note.title}?`
+
+    if(window.confirm(confirmText)) {
+      this.props.deleteNote(note.id)
+    } else {
+      return;
+    }
   }
   
   render() {
@@ -114,7 +124,7 @@ class Notes extends Component {
         <ul>
           {get_notes.payload &&
             get_notes.payload.map(note => <li key={note.id}>
-              <div>{note.title} <span onClick={() => this.handleEdit(note)}>edit</span> <span onClick={this.handleDelete}>delete</span></div>
+              <div>{note.title} <span onClick={() => this.handleEdit(note)}>edit</span> <span onClick={() => this.handleDelete(note)}>delete</span></div>
               {this.state.enableEditId === note.id && <form onSubmit={event => this.handleEditSubmit(event, note.id, this.state.valueEdit)}>
                 <input
                   type="text"
@@ -136,4 +146,4 @@ const mapStateToProps = ({ get_notes, create_note }) => ({
   create_note
 })
 
-export default withTranslation()(connect(mapStateToProps, { getNotes, createNote, editNote } )(Notes))
+export default withTranslation()(connect(mapStateToProps, { getNotes, createNote, editNote, deleteNote } )(Notes))

@@ -1,4 +1,5 @@
 {
   "notes": "Notes",
-  "homepage": "Homepage"
+  "homepage": "Homepage",
+  "confirm_delete": "Do you really want to delete note"
 }

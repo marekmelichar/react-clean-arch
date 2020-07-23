@@ -1,9 +1,9 @@
 import { INote } from '../../../domain/entity/note'
-import { ICreateNote } from '../../boundary/notes'
+import { IEditNote } from '../../boundary/notes'
 import { INotesStorageGateway } from '../../repository/notes'
 import { AxiosResponse } from 'axios'
 
-export class EditNote implements ICreateNote {
+export class EditNote implements IEditNote {
   notesGateway: INotesStorageGateway
 
   constructor(

@@ -30,4 +30,9 @@ export class NotesGateway implements INotesStorageGateway {
     const response = await axios.put(`${this.url}/notes/${newNote.id}`, newNote)
     return response
   }
+
+  delete = async (id: string): Promise<AxiosResponse<any>> => {
+    const response = await axios.delete(`${this.url}/notes/${id}`)
+    return response
+  }
 }

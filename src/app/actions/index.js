@@ -7,17 +7,22 @@ import {
   CREATE_NOTE_FAILURE,
   EDIT_NOTE_REQUEST,
   EDIT_NOTE_SUCCESS,
-  EDIT_NOTE_FAILURE
+  EDIT_NOTE_FAILURE,
+  DELETE_NOTE_REQUEST,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE
 } from './types'
 
 import { getNotes } from './getNotes'
 import { createNote } from './createNote'
 import { editNote } from './editNote'
+import { deleteNote } from './deleteNote'
 
 export {
   getNotes,
   createNote,
   editNote,
+  deleteNote,
 
   NOTES_LOAD_REQUEST,
   NOTES_LOAD_SUCCESS,
@@ -27,5 +32,8 @@ export {
   CREATE_NOTE_FAILURE,
   EDIT_NOTE_REQUEST,
   EDIT_NOTE_SUCCESS,
-  EDIT_NOTE_FAILURE
+  EDIT_NOTE_FAILURE,
+  DELETE_NOTE_REQUEST,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE
 }
