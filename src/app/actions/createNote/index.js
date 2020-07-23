@@ -20,7 +20,6 @@ export const createNote = note => {
       const noteResult = await noteService.execute(note)
       dispatch({ type: CREATE_NOTE_SUCCESS, payload: noteResult })
       
-      console.log('noteResult', noteResult)
       if(noteResult) {
         dispatch(getNotes())
       }

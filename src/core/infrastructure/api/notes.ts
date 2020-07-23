@@ -25,4 +25,9 @@ export class NotesGateway implements INotesStorageGateway {
     const response = await axios.post(`${this.url}/notes`, newNote)
     return response
   }
+
+  edit = async (newNote: INote): Promise<AxiosResponse<any>> => {
+    const response = await axios.put(`${this.url}/notes/${newNote.id}`, newNote)
+    return response
+  }
 }
