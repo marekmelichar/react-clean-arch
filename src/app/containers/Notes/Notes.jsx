@@ -22,7 +22,9 @@ class Notes extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     
-    if(nextProps.get_notes.payload !== this.props.get_notes.payload) {
+    if(nextProps.get_notes.payload !== this.props.get_notes.payload ||
+      this.props.i18n.language
+    ) {
       return true;
     }
 
@@ -102,6 +104,8 @@ class Notes extends Component {
   render() {
     
     const { t, get_notes, create_note } = this.props
+
+    // console.log('TTT', t);
 
     return (
       <div>
