@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -12,6 +13,7 @@
     "@types/react-redux": "^7.1.9",
     "axios": "^0.19.2",
     "concurrently": "^5.2.0",
+    "graphql": "^15.3.0",
     "i18next": "^19.6.2",
     "i18next-browser-languagedetector": "^5.0.0",
     "i18next-http-backend": "^1.0.17",
@@ -33,7 +35,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "api": "json-server --watch db.json --port 3004",
-    "dev": "concurrently \"yarn start\" \"yarn api\""
+    "graphql-server": "node ./graphql-server/server.js",
+    "dev": "concurrently \"yarn start\" \"yarn api\" \"yarn graphql-server\""
   },
   "eslintConfig": {
     "extends": "react-app"
