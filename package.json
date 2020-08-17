@@ -1,56 +1,56 @@
 {
-  "name": "react-clean-arch",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.0.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.9",
-    "axios": "^0.19.2",
-    "concurrently": "^5.2.0",
-    "graphql": "^15.3.0",
-    "i18next": "^19.6.2",
-    "i18next-browser-languagedetector": "^5.0.0",
-    "i18next-http-backend": "^1.0.17",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-i18next": "^11.7.0",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "typescript": "~3.7.2",
-    "uuid": "^8.2.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "api": "json-server --watch db.json --port 3004",
-    "graphql-server": "node ./graphql-server/server.js",
-    "dev": "concurrently \"yarn start\" \"yarn api\" \"yarn graphql-server\""
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "react-clean-arch",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@apollo/client": "^3.0.2",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@types/jest": "^24.0.0",
+		"@types/node": "^12.0.0",
+		"@types/react-dom": "^16.9.0",
+		"@types/react-redux": "^7.1.9",
+		"axios": "^0.19.2",
+		"concurrently": "^5.2.0",
+		"graphql": "^15.3.0",
+		"i18next": "^19.6.2",
+		"i18next-browser-languagedetector": "^5.0.0",
+		"i18next-http-backend": "^1.0.17",
+		"node-sass": "^4.14.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-i18next": "^11.7.0",
+		"react-redux": "^7.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.1",
+		"redux": "^4.0.5",
+		"redux-thunk": "^2.3.0",
+		"typescript": "~3.7.2",
+		"uuid": "^8.2.0"
+	},
+	"scripts": {
+		"start": "PORT=4000 react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"api": "json-server --watch db.json --port 3004",
+		"graphql-server": "node ./graphql-server/server.js",
+		"dev": "concurrently \"yarn start\" \"yarn api\" \"yarn graphql-server\""
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
